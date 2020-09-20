@@ -1,36 +1,47 @@
 ﻿@model CwoPqsApp.Models.Officer
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Officer";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Officer</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rank)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rank)
-        </dd>
-    </dl>
-</div>
+    <h1>
+        @Html.DisplayFor(model => model.Rank)
+        @Html.DisplayFor(model => model.FirstName)
+        @Html.DisplayFor(model => model.LastName)
+    </h1>
+
+    <div class="w3-bar w3-indigo">
+        <button class="w3-bar-item w3-button" onclick="openCity('London')">2A</button>
+        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">2B</button>
+    </div>
+
+    <div id="London" class="w3-container city">
+        <h2 class="w3-text-indigo">NAVEDTRA 43357-2A - November 2016</h2>
+        @{
+            await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoAlpha);
+        }
+    </div>
+
+    <div id="Paris" class="w3-container city" style="display:none">
+        <h2 class="w3-text-indigo">NAVEDTRA 43357-2B - 14 March 2020</h2>
+        @{
+            await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoBravo);
+        }
+    </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script>
+    function openCity(cityName) {
+        var i;
+        var x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(cityName).style.display = "block";
+    }
+</script>

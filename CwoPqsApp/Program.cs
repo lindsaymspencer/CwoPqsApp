@@ -15,6 +15,7 @@ namespace CwoPqsApp
     {
         public static void Main(string[] args)
         {
+            // Modified from
             // https://exceptionnotfound.net/ef-core-inmemory-asp-net-core-store-database/
 
             //1. Get the IWebHost which will host this application.
@@ -23,7 +24,7 @@ namespace CwoPqsApp
             //2. Find the service layer within our scope.
             using (var scope = host.Services.CreateScope())
             {
-                //3. Get the instance of BoardGamesDBContext in our services layer
+                //3. Get the instance of CwoPqsContext in our services layer
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<CwoPqsAppContext>();
 

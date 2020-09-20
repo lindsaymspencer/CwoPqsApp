@@ -23,10 +23,17 @@ namespace CwoPqsApp.Data
                 context.Officers.AddRange(
                     new Officer
                     {
-                        Id = 6,
+                        Id = 1,
                         FirstName = "Lindsay",
                         LastName = "Spencer",
                         Rank = "LTJG"
+                    }, 
+                    new Officer
+                    {
+                        Id = 2,
+                        LastName = "Moss",
+                        FirstName = "Christopher",
+                        Rank = "LT"
                     });
 
                 context.SaveChanges();

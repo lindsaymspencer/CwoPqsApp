@@ -4,31 +4,32 @@
     ViewData["Title"] = "Officer";
 }
 
+<a asp-action="Export" asp-route-id="@Model.Id">Export</a> 
 
-    <h1>
-        @Html.DisplayFor(model => model.Rank)
-        @Html.DisplayFor(model => model.FirstName)
-        @Html.DisplayFor(model => model.LastName)
-    </h1>
+<h1>
+    @Html.DisplayFor(model => model.Rank)
+    @Html.DisplayFor(model => model.FirstName)
+    @Html.DisplayFor(model => model.LastName)
+</h1>
 
-    <div class="w3-bar w3-indigo">
-        <button class="w3-bar-item w3-button" onclick="openCity('London')">2A</button>
-        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">2B</button>
-    </div>
+<div class="w3-bar w3-theme-action">
+    <button class="w3-bar-item w3-button" onclick="openCity('London')">2A</button>
+    <button class="w3-bar-item w3-button" onclick="openCity('Paris')">2B</button>
+</div>
 
-    <div id="London" class="w3-container city">
-        <h2 class="w3-text-indigo">NAVEDTRA 43357-2A - November 2016</h2>
-        @{
-            await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoAlpha);
-        }
-    </div>
+<div id="London" class="w3-container city">
+    <h2 class="w3-text-theme">NAVEDTRA 43357-2A - November 2016</h2>
+    @{
+        await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoAlpha);
+    }
+</div>
 
-    <div id="Paris" class="w3-container city" style="display:none">
-        <h2 class="w3-text-indigo">NAVEDTRA 43357-2B - 14 March 2020</h2>
-        @{
-            await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoBravo);
-        }
-    </div>
+<div id="Paris" class="w3-container city" style="display:none">
+    <h2 class="w3-text-theme">NAVEDTRA 43357-2B - 14 March 2020</h2>
+    @{
+        await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoBravo);
+    }
+</div>
 
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

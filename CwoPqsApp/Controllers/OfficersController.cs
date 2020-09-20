@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CwoPqsApp.Data;
 using CwoPqsApp.Models;
+using CwoPqsApp.Services;
 
 namespace CwoPqsApp.Controllers
 {
@@ -148,6 +149,28 @@ namespace CwoPqsApp.Controllers
         private bool OfficerExists(int id)
         {
             return _context.Officers.Any(e => e.Id == id);
+        }
+
+        // GET: Officers/Export/5
+        public async Task<IActionResult> Export(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var officer = await _context.Officers
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (officer == null)
+            {
+                return NotFound();
+            }
+
+            // TODO: Change this
+            officer.Export(@"C:\Users\worki\Downloads\");
+            
+            // TODO: Change this too
+            return RedirectToAction(nameof(Index));
         }
     }
 }

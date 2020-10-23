@@ -2,11 +2,19 @@
 using System.Linq;
 using System.Text.Json;
 using System;
+using CwoPqsApp.Services;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using System.IO;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CwoPqsApp.Models
 {
     public class CwoPqs
     {
+        [JsonIgnore]
+        public int Id { get; set; }
+
         private readonly string[] TwoBravoSectionsByLine =
         {
             "Safety Precautions Fundamentals;101;1;2;3;4;5;6;7;8",
@@ -79,7 +87,7 @@ namespace CwoPqsApp.Models
             "Administrative, Readiness and Logistical Reporting Fundamentals;133;1;2;3;4;5;6;7;8"
         };
 
-    public List<Section> Sections { get; set; }
+        public List<Section> Sections { get; set; }
 
         public static CwoPqs NewTwoAlpha()
         {

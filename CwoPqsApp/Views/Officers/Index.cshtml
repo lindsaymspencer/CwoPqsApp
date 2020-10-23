@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CwoPqsApp.Models.Officer>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Officers";
 }
 
 <h1>Index</h1>
@@ -37,8 +37,8 @@
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit Officer</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Signatures</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

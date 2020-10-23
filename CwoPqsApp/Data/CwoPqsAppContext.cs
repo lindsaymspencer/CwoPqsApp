@@ -15,5 +15,9 @@ namespace CwoPqsApp.Data
         }
 
         public DbSet<CwoPqsApp.Models.Officer> Officers { get; set; }
+
+        public DbSet<CwoPqsApp.Models.CwoPqs> CwoPqs { get; set; }
+
+        public DbSet<CwoPqsApp.Models.Section> Section { get; set; }
     }
 }

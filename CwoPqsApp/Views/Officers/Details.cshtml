@@ -13,21 +13,21 @@
 </h1>
 
 <div class="w3-bar w3-theme-action">
-    <button class="w3-bar-item w3-button" onclick="openCity('London')">2A</button>
-    <button class="w3-bar-item w3-button" onclick="openCity('Paris')">2B</button>
+    <button class="w3-bar-item w3-button" onclick="openPqs('twoAlpha')">2A</button>
+    <button class="w3-bar-item w3-button" onclick="openPqs('twoBravo')">2B</button>
 </div>
 
-<div id="London" class="w3-container city">
+<div id="twoAlpha" class="w3-container pqs">
     <h2 class="w3-text-theme">NAVEDTRA 43357-2A - November 2016</h2>
     @{
-        await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoAlpha);
+        await Html.RenderPartialAsync("../CwoPqs/Edit", Model.TwoAlpha);
     }
 </div>
 
-<div id="Paris" class="w3-container city" style="display:none">
+<div id="twoBravo" class="w3-container pqs" style="display:none">
     <h2 class="w3-text-theme">NAVEDTRA 43357-2B - 14 March 2020</h2>
     @{
-        await Html.RenderPartialAsync("../CwoPqs/CwoPqs", Model.TwoBravo);
+        await Html.RenderPartialAsync("../CwoPqs/Edit", Model.TwoBravo);
     }
 </div>
 
@@ -37,12 +37,12 @@
 </div>
 
 <script>
-    function openCity(cityName) {
+    function openPqs(pqs) {
         var i;
-        var x = document.getElementsByClassName("city");
+        var x = document.getElementsByClassName("pqs");
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(pqs).style.display = "block";
     }
 </script>

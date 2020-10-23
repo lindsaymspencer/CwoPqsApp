@@ -5,11 +5,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using CwoPqsApp.Services;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
 
 namespace CwoPqsApp.Data
 {
     public class DataGenerator
     {
+        [JsonIgnore]
+        public int Id { get; set; }
+
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using (var context = new CwoPqsAppContext(
